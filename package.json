@@ -1,0 +1,13 @@
+{
+  "name": "booster-tutor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "15 cartas al azar de un cubo de CubeCobra para jugar Booster Tutor con cartas físicas.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}

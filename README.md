@@ -22,13 +22,13 @@ When Booster Tutor resolves, the app opens a "pack": it picks **15 random cards,
 
 ## Running it locally
 
-It is a static site, so any HTTP server will do:
+With Node (no dependencies, nothing to install):
 
 ```bash
-python3 -m http.server 8765
+npm start
 ```
 
-Open <http://localhost:8765>.
+Open <http://localhost:8765>. Since it is a static site, any other HTTP server works too (for example `python3 -m http.server 8765`).
 
 > Opening `index.html` directly (`file://`) may fail because of browser restrictions on requests to the APIs. Use a server.
 
@@ -87,11 +87,15 @@ The idea was to read the list straight from Moxfield, but its API doesn't allow 
 index.html   markup for both screens (start and pack)
 styles.css   design, responsive layout and animations
 app.js       data fetching, rendering and dock logic
+server.js    minimal static server (Heroku / npm start)
+package.json Node configuration for Heroku
 ```
 
 ## Deployment
 
-Any static hosting works (GitHub Pages, Netlify, Cloudflare Pages). On GitHub Pages: *Settings → Pages → Deploy from a branch → `main` / root*.
+**Heroku:** `package.json` makes Heroku detect the Node buildpack, and it runs `npm start`, which starts `server.js`. That is a minimal server with no dependencies that serves only `index.html`, `styles.css` and `app.js`, on the port set by `PORT`.
+
+**Static hosting:** it also works on GitHub Pages, Netlify or Cloudflare Pages with no server. On GitHub Pages: *Settings → Pages → Deploy from a branch → `main` / root*.
 
 ## Credits
 
